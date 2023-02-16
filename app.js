@@ -13,4 +13,13 @@ async function getWeather(city) {
   console.log(weatherObject);
 }
 
+async function getForecast(city) {
+  let URL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=e3674787c6ec0c4c2df46d6a2ee73350&units=metric`;
+  let response = await fetch(URL);
+  let weatherObject = await response.json();
+
+  // Current Temperature
+  console.log(weatherObject);
+}
+
 getWeather("London");

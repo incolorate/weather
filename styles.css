@@ -1,0 +1,48 @@
+:root {
+  --div-background: linear-gradient(
+    45deg,
+    #ff9a9e 0%,
+    #fad0c4 99%,
+    #fad0c4 100%
+  );
+  --div-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Div design */
+.glass-div {
+  padding: 15px;
+  background-image: var(--div-background);
+  border-radius: 16px;
+  box-shadow: var(--div-shadow);
+}
+/* Search div / top div */
+.search-div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+}
+
+/* Search Bar */
+
+#search-bar {
+  border-radius: 20px;
+  border: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  flex: 1;
+}
+
+/* Search icon */
+
+#magnifying-glass {
+  height: 1.5rem;
+}
