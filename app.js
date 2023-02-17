@@ -11,7 +11,15 @@ async function getWeather(city) {
   let response = await fetch(URL);
   let weatherObject = await response.json();
 
-  // Current Temperature
+  // Error text
+  try {
+    //this way you can catch error and dsplay them to really know why the api call failed
+    if (weatherObject.cod != 200) throw "error";
+  } catch (error) {
+    getWeather("Oradea");
+    alert("Invalid city name");
+  }
+
   let temperature = `Temperature: ${weatherObject.main.temp} °C`;
   let temperatureFeelsLike = `Feels like: ${weatherObject.main.feels_like} °C`;
 
@@ -55,9 +63,10 @@ async function getForecast(city) {
   console.log();
   //Today's forecast div
   let todayForecast = document.querySelector("#forecast");
+  todayForecast.innerHTML = "";
   // 5 day forecast div
   let dayForecast = document.querySelector("#day-forecast");
-  console.log(weatherObject.list);
+  dayForecast.innerHTML = "";
 
   // Generate forecast
   for (let i = 0; i < weatherObject.list.length; i++) {
@@ -65,7 +74,6 @@ async function getForecast(city) {
     currentDate = currentDate.split(" ");
     let day = currentDate[0];
     let hour = currentDate[1];
-    console.log(currentDate);
     // Generate 5 day forecast
     if (hour === "15:00:00") {
       //  Calculate the day based on the date
@@ -124,6 +132,7 @@ async function getForecast(city) {
 let searchBar = document.querySelector("#search-bar");
 function searchCity() {
   getWeather(`${searchBar.value}`);
+  getForecast(`${searchBar.value}`);
 }
 
 //Search bar-functionality
@@ -139,4 +148,4 @@ searchBar.addEventListener("keypress", (e) => {
 
 // Default
 document.addEventListener("onload", getWeather("Oradea"));
-getForecast("Oradea");
+document.addEventListener("onload", getForecast("Oradea"));
