@@ -8,7 +8,7 @@
     <title>Weather</title>
   </head>
   <body>
-    <div>
+    <div class="container">
       <div class="glass-div search-div">
         <input type="text" placeholder="City" id="search-bar" />
         <img
@@ -17,7 +17,24 @@
           id="magnifying-glass"
         />
       </div>
+
+      <div class="glass-div" id="weather">
+        <div id="weather-image"></div>
+        <div id="temperature"></div>
+        <div></div>
+      </div>
+
+      <div class="glass-div" id="forecast-container">
+        <p>Today's forecast</p>
+        <div id="forecast"></div>
+      </div>
+
+      <div class="glass-div">
+        <p>5 day forecast</p>
+        <div id="5-day-forecast"></div>
+      </div>
     </div>
+
     <script src="./app.js"></script>
   </body>
 </html>
