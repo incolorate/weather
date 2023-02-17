@@ -16,6 +16,8 @@ body {
 }
 /* Main container */
 .container {
+  max-width: 960px;
+  margin: auto;
   display: grid;
   gap: 30px;
 }
@@ -87,12 +89,22 @@ body {
 #forecast-container {
   max-width: 1200px;
 }
-#forecast {
+#forecast,
+#day-forecast {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
   gap: 5px;
   text-align: center;
+}
+
+#day-forecast {
+  gap: 50px;
+}
+/* 5Day forecast */
+#day-forecast-container {
+  max-width: 1200px;
 }
 
 @media (min-width: 500px) {
@@ -110,15 +122,15 @@ body {
     font-size: 1.5rem;
   }
   #forecast img {
-    width: 50px;
+    width: 40px;
   }
 }
 
 @media (min-width: 700px) {
   #forecast p {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   #forecast img {
-    width: 75px;
+    width: 50px;
   }
 }

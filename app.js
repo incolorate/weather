@@ -55,6 +55,9 @@ async function getForecast(city) {
   console.log();
   //Today's forecast div
   let todayForecast = document.querySelector("#forecast");
+  // 5 day forecast div
+  let dayForecast = document.querySelector("#day-forecast");
+  console.log(weatherObject.list);
 
   // Generate forecast
   for (let i = 0; i < weatherObject.list.length; i++) {
@@ -62,7 +65,38 @@ async function getForecast(city) {
     currentDate = currentDate.split(" ");
     let day = currentDate[0];
     let hour = currentDate[1];
+    console.log(currentDate);
+    // Generate 5 day forecast
+    if (hour === "15:00:00") {
+      //  Calculate the day based on the date
+      const weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const d = new Date(day);
+      let dayName = weekday[d.getDay()];
 
+      // Create elements
+      let div = document.createElement("div");
+      let pText = document.createElement("p");
+      let pText2 = document.createElement("p");
+      let smallWeatherImg = document.createElement("img");
+      let weatherDescription = weatherObject.list[i].weather[0].description;
+      // Element content
+      smallWeatherImg.src = `./img/${weatherDescription}.svg`;
+      pText.innerText = `${weatherObject.list[i].main.temp} °C `;
+      pText2.innerText = dayName;
+
+      div.appendChild(pText2);
+      div.appendChild(smallWeatherImg);
+      div.appendChild(pText);
+      dayForecast.appendChild(div);
+    }
     // Generate Today's forecast
     if (day === currentDay) {
       // Create elements
@@ -75,7 +109,6 @@ async function getForecast(city) {
       smallWeatherImg.src = `./img/${weatherDescription}.svg`;
       pText.innerText = `${weatherObject.list[i].main.temp} °C `;
       pText2.innerText = hour.substr(0, 5);
-      // Add classes
 
       div.appendChild(pText2);
       div.appendChild(smallWeatherImg);
