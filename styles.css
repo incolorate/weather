@@ -133,7 +133,8 @@ body {
 }
 
 @media (min-width: 700px) {
-  #forecast p {
+  #forecast p,
+  #day-forecast {
     font-size: 1.5rem;
   }
   #forecast img {
