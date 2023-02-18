@@ -8,6 +8,6 @@ Features:
 * Mobile responsive design
 * Current weather, weather throughout the day, and 5-day forecast
 
-##[Live preview](https://incolorate.github.io/weather/)
+## [Live preview](https://incolorate.github.io/weather/)
 
 ![image](https://user-images.githubusercontent.com/88613908/219846984-0b4223b6-646b-4c10-b43b-6115238e421b.png)
